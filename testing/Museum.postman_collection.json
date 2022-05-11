@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "3c72380c-31e4-4db2-91c8-13ecb3d839a3",
+		"name": "Museum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01 Testservice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/test/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"test",
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
