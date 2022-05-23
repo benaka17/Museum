@@ -1,5 +1,7 @@
 package ch.bzz.museum.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +10,18 @@ public class Ausstellung {
     private String museumID;
     private int anzBilder;
     private String ort;
+    private String name;
+    @JsonIgnore
     private List<Bild> bilderList;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getMuseumID() {
         return museumID;

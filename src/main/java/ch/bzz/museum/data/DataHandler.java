@@ -55,7 +55,7 @@ public class DataHandler {
      */
     public Bild readBildByUUID(String bildUUID) {
         Bild bild = null;
-        for (Bild entry : getInstance().bilderList) {
+        for (Bild entry : getBilderList()) {
             if (entry.getBildID().equals(bildUUID)) {
                 bild = entry;
             }
@@ -67,7 +67,7 @@ public class DataHandler {
      * reads all Ausstellungen
      * @return list of Ausstellungen
      */
-    public List<Ausstellung> readAllPublishers() {
+    public List<Ausstellung> readAllAusstellung() {
 
         return getInstance().ausstellungList;
     }
@@ -92,7 +92,7 @@ public class DataHandler {
      */
     private void readBildJSON() {
         try {
-            String path = Config.getProperty("bookJSON");
+            String path = Config.getProperty("bilderJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
@@ -113,7 +113,7 @@ public class DataHandler {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
-                            Config.getProperty("publisherJSON")
+                            Config.getProperty("ausstellungJSON")
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();

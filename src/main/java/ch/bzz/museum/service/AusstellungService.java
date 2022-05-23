@@ -12,8 +12,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("bild")
-public class BildService {
+@Path("ausstellung")
+public class AusstellungService {
 
     /**
      * reads a list of all Bilder
@@ -22,18 +22,18 @@ public class BildService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBilder(){
-        List<Bild> bookList = DataHandler.getInstance().readAllBilder();
+    public Response listAusstellung(){
+        List<Ausstellung> ausstellungList = DataHandler.getInstance().readAllAusstellung();
         return Response
                 .status(200)
-                .entity(bookList)
+                .entity(ausstellungList)
                 .build();
     }
 
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBild(
+    public Response readAusstellung(
             @QueryParam("uuid") String bildUUID
     ) {
 
@@ -41,14 +41,14 @@ public class BildService {
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();
         } else {
-            Bild bild = DataHandler.getInstance().readBildByUUID(bildUUID);
-            if (bild != null){
+            Ausstellung ausstellung = DataHandler.getInstance().readAusstellungByUUID(bildUUID);
+            if (ausstellung != null){
                 return Response
                         .status(200)
-                        .entity(bild)
+                        .entity(ausstellung)
                         .build();
             } else {
-                return Response.status(404).entity(bild).build();
+                return Response.status(404).entity(ausstellung).build();
             }
         }
     }
