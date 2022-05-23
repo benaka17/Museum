@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Ausstellung {
 
+    //Attribute
     private String museumID;
     private int anzBilder;
     private String ort;
@@ -14,7 +15,7 @@ public class Ausstellung {
     @JsonIgnore
     private List<Bild> bilderList;
 
-
+    //Getter und Setter für alles:
     public String getName() {
         return name;
     }

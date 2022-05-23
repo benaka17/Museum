@@ -31,7 +31,7 @@ public class DataHandler {
 
     /**
      * gets the only instance of this class
-     * @return
+     * @return instance
      */
     public static DataHandler getInstance() {
         if (instance == null)
@@ -64,8 +64,8 @@ public class DataHandler {
     }
 
     /**
-     * reads all Ausstellungen
-     * @return list of Ausstellungen
+     * liest alle Ausstellungen
+     * @return liste von Ausstellungen
      */
     public List<Ausstellung> readAllAusstellung() {
 
@@ -73,9 +73,9 @@ public class DataHandler {
     }
 
     /**
-     * reads a ausstellung by its uuid
+     * liest eine Ausstellung nach ihrer uuid
      * @param ausstellungUUID
-     * @return the Ausstellung (null=not found)
+     * @return die Ausstellung (null=not found)
      */
     public Ausstellung readAusstellungByUUID(String ausstellungUUID) {
         Ausstellung ausstellung = null;
@@ -88,7 +88,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the bilder from the JSON-file
+     * liest die bilder vom JSON-file
      */
     private void readBildJSON() {
         try {
@@ -107,7 +107,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the Ausstellungen from the JSON-file
+     * liest die Ausstellungen vom JSON-file
      */
     private void readAusstellungJSON() {
         try {

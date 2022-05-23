@@ -16,7 +16,7 @@ import java.util.List;
 public class BildService {
 
     /**
-     * reads a list of all Bilder
+     * liest eine liste von allen Bildern
      * @return bild as JSON
      */
     @GET
@@ -31,7 +31,7 @@ public class BildService {
     }
 
     /**
-     * reads a list of a single Bild
+     * liest eine liste von einem einzigen Bild
      * @return bild as JSON
      */
     @GET
@@ -40,10 +40,10 @@ public class BildService {
     public Response readBild(
             @QueryParam("uuid") String bildUUID
     ) {
-        if (bildUUID.isEmpty()){
+        if (bildUUID.isEmpty()){ //falls uuid leer ist, exception werfen
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();
-        } else {
+        } else { //sonst die response wiedergeben
             Bild bild = DataHandler.getInstance().readBildByUUID(bildUUID);
             if (bild != null){
                 return Response

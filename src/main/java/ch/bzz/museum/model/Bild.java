@@ -2,16 +2,18 @@ package ch.bzz.museum.model;
 
 public class Bild {
 
+    //Attribute
     private String bildID;
     private String name;
     private String künstler;
-    private Integer datum;
+    private Integer datum; //Wrapper-Klasse benutzt, da Fehler vorkamen ohne
     private String art; //Kategorien wie "modern"
     private double preis;
     /*
     private Ausstellung ausstellung;
      */
 
+    //Getter und Setter für alles:
     public String getBildID() {
         return bildID;
     }
