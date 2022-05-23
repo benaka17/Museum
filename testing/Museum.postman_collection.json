@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "3c72380c-31e4-4db2-91c8-13ecb3d839a3",
+		"name": "Museum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0.1 Testservice",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/test/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"test",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.1 List all items from \"Bild\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"list"
+					]
+				},
+				"description": "Should display every \"Bild\""
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 List single item from \"Bild\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "a8fcf250-34d5-44ce-ad2f-b869815e57fe"
+						}
+					]
+				},
+				"description": "Should display a single \"Bild\""
+			},
+			"response": []
+		},
+		{
+			"name": "2.1 List all items from \"Ausstellung\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"list"
+					]
+				},
+				"description": "Should display every item from \"Ausstellung\""
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 List single item from \"Ausstellung\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=421c2deb-7594-4495-b565-4d41f113bfd9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "421c2deb-7594-4495-b565-4d41f113bfd9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.1 Read unknown uuid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57ef",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "a8fcf250-34d5-44ce-ad2f-b869815e57ef"
+						}
+					]
+				},
+				"description": "Should display an error of some kind, since it is an invalid input"
+			},
+			"response": []
+		}
+	]
+}

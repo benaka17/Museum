@@ -1,0 +1,222 @@
+{
+	"id": "365f53c3-5174-4d42-ba80-34f23e48ad5d",
+	"name": "Museum",
+	"timestamp": "2022-05-23T18:28:53.782Z",
+	"collection_id": "3c72380c-31e4-4db2-91c8-13ecb3d839a3",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 8,
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "f0a883ec-6cbd-431d-b84c-4e955e57ff60",
+			"name": "0.1 Testservice",
+			"url": "http://localhost:8080/Museum-1.0/resource/test/test",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "6925c9da-6766-43be-808d-559cf1d7404b",
+			"name": "1.1 List all items from \"Bild\"",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/list",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true
+				}
+			]
+		},
+		{
+			"id": "9fba2eba-4ece-4bd2-b059-59cfef691494",
+			"name": "1.2 List single item from \"Bild\"",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57fe",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "21c5a6d2-fd74-4239-a93c-39decce57989",
+			"name": "2.1 List all items from \"Ausstellung\"",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/list",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true
+				}
+			]
+		},
+		{
+			"id": "a0c35978-23f4-41db-b988-95944c174d31",
+			"name": "2.2 List single item from \"Ausstellung\"",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=421c2deb-7594-4495-b565-4d41f113bfd9",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "722b3a45-bebe-46a1-ae90-883f46e840b6",
+			"name": "3.1 Read unknown uuid",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57ef",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 60,
+	"collection": {
+		"requests": [
+			{
+				"id": "f0a883ec-6cbd-431d-b84c-4e955e57ff60",
+				"method": "GET"
+			},
+			{
+				"id": "6925c9da-6766-43be-808d-559cf1d7404b",
+				"method": "GET"
+			},
+			{
+				"id": "9fba2eba-4ece-4bd2-b059-59cfef691494",
+				"method": "GET"
+			},
+			{
+				"id": "21c5a6d2-fd74-4239-a93c-39decce57989",
+				"method": "GET"
+			},
+			{
+				"id": "a0c35978-23f4-41db-b988-95944c174d31",
+				"method": "GET"
+			},
+			{
+				"id": "722b3a45-bebe-46a1-ae90-883f46e840b6",
+				"method": "GET"
+			}
+		]
+	}
+}

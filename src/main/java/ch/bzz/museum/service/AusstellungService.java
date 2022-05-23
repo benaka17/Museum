@@ -16,8 +16,8 @@ import java.util.List;
 public class AusstellungService {
 
     /**
-     * reads a list of all Bilder
-     * @return books as JSON
+     * reads a list of all Ausstellungen
+     * @return ausstellung as JSON
      */
     @GET
     @Path("list")
@@ -30,13 +30,16 @@ public class AusstellungService {
                 .build();
     }
 
+    /**
+     * reads a list of a single Ausstellung
+     * @return ausstellung as JSON
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readAusstellung(
             @QueryParam("uuid") String bildUUID
     ) {
-
         if (bildUUID.isEmpty()){
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();

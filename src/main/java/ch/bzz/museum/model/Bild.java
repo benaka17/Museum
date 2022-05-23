@@ -3,14 +3,13 @@ package ch.bzz.museum.model;
 public class Bild {
 
     private String bildID;
-    /*
-    private Ausstellung ausstellung;
     private String name;
     private String künstler;
-    private String datum;
+    private Integer datum;
     private String art; //Kategorien wie "modern"
-    private float preis;
-
+    private double preis;
+    /*
+    private Ausstellung ausstellung;
      */
 
     public String getBildID() {
@@ -20,16 +19,6 @@ public class Bild {
     public void setBildID(String bildID) {
         this.bildID = bildID;
     }
-
-    /*
-    public Ausstellung getAusstellung() {
-        return ausstellung;
-    }
-
-    public void setAusstellung(Ausstellung ausstellung) {
-        this.ausstellung = ausstellung;
-    }
-
 
     public String getName() {
         return name;
@@ -47,11 +36,11 @@ public class Bild {
         this.künstler = künstler;
     }
 
-    public String getDatum() {
+    public int getDatum() {
         return datum;
     }
 
-    public void setDatum(String datum) {
+    public void setDatum(int datum) {
         this.datum = datum;
     }
 
@@ -63,14 +52,22 @@ public class Bild {
         this.art = art;
     }
 
-    public float getPreis() {
+    public double getPreis() {
         return preis;
     }
 
-    public void setPreis(float preis) {
+    public void setPreis(double preis) {
         this.preis = preis;
     }
 
+    /*
+    public Ausstellung getAusstellung() {
+        return ausstellung;
+    }
+
+    public void setAusstellung(Ausstellung ausstellung) {
+        this.ausstellung = ausstellung;
+    }
      */
 
 }

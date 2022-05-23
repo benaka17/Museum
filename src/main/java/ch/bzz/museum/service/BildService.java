@@ -17,7 +17,7 @@ public class BildService {
 
     /**
      * reads a list of all Bilder
-     * @return books as JSON
+     * @return bild as JSON
      */
     @GET
     @Path("list")
@@ -30,13 +30,16 @@ public class BildService {
                 .build();
     }
 
+    /**
+     * reads a list of a single Bild
+     * @return bild as JSON
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readBild(
             @QueryParam("uuid") String bildUUID
     ) {
-
         if (bildUUID.isEmpty()){
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();

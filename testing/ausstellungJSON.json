@@ -1,0 +1,26 @@
+[
+ {
+  "museumID": "421c2deb-7594-4495-b565-4d41f113bfd9",
+  "anzBilder": 2,
+  "ort": "Zürich",
+  "name": "Kunsthaus"
+ },
+ {
+  "museumID": "a30731cf-d413-4c72-9e42-47845fe35ae0",
+  "anzBilder": 2,
+  "ort": "London",
+  "name": "TATE"
+ },
+ {
+  "museumID": "cc064a0f-91a7-41a5-a4c5-119ac400106c",
+  "anzBilder": 2,
+  "ort": "New York City",
+  "name": "MoMA"
+ },
+ {
+  "museumID": "25bae4ca-3f63-493b-a9e3-980052e5f4ad",
+  "anzBilder": 2,
+  "ort": "Paris",
+  "name": "Louvre"
+ }
+]
