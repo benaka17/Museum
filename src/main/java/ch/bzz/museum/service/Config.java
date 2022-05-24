@@ -27,6 +27,7 @@ public class Config extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet providers = new HashSet<Class<?>>();
+        providers.add(KuenstlerService.class);
         providers.add(BildService.class);
         providers.add(AusstellungService.class);
         providers.add(TestService.class);

@@ -1,0 +1,32 @@
+[
+ {
+  "kuenstlerID": "74e632e6-d08d-4aac-96da-892d0a51114e",
+  "name": "Leonardo Da Vinci",
+  "geburtsdatum": "1452-04-15"
+ },
+ {
+  "kuenstlerID": "4a81e2be-3698-4b23-b0e5-fb1d33b1cca2",
+  "name": "Vincent Van Gogh",
+  "geburtsdatum": "1853-03-30"
+ },
+ {
+  "kuenstlerID": "2aeb1846-81b1-47a6-a933-24a70ee8da17",
+  "name": "Gustav Klimt",
+  "geburtsdatum": "1862-07-14"
+ },
+ {
+  "kuenstlerID": "f56dc436-6b5a-4c82-8d43-948fe914de70",
+  "name": "Katsushika Hokusai",
+  "geburtsdatum": "1760-10-31"
+ },
+ {
+  "kuenstlerID": "959f77c8-923f-4d91-b3e7-9581beeba89c",
+  "name": "Pablo Picasso",
+  "geburtsdatum": "1881-10-25"
+ },
+ {
+  "kuenstlerID": "e2b57b95-4972-4f46-8a9b-bc48c317cb86",
+  "name": "Grant Wood",
+  "geburtsdatum": "1891-13-02"
+ }
+]

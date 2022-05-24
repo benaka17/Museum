@@ -2,6 +2,7 @@ package ch.bzz.museum.data;
 
 import ch.bzz.museum.model.Ausstellung;
 import ch.bzz.museum.model.Bild;
+import ch.bzz.museum.model.Kuenstler;
 import ch.bzz.museum.service.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,6 +19,7 @@ public class DataHandler {
     private static DataHandler instance = null;
     private List<Bild> bilderList;
     private List<Ausstellung> ausstellungList;
+    private List<Kuenstler> kuenstlerList;
 
     /**
      * private constructor defeats instantiation
@@ -27,6 +29,8 @@ public class DataHandler {
         readAusstellungJSON();
         setBilderList(new ArrayList<>());
         readBildJSON();
+        setKuenstlerList(new ArrayList<>());
+        readKünstlerJSON();
     }
 
     /**
@@ -39,9 +43,50 @@ public class DataHandler {
         return instance;
     }
 
+    /**
+     * liest alle Künstler
+     * @return liste von allen künstlern
+     */
+    public List<Kuenstler> readAllKünstler() {
+        return getInstance().kuenstlerList;
+    }
 
     /**
-     * reads all bilder
+     * liest alle Künstler nach ihrer uuid
+     * @param kuenstlerUUID
+     * @return the künstler (null=not found)
+     */
+    public Kuenstler readKünstlerByUUID(String kuenstlerUUID) {
+        Kuenstler kuenslter = null;
+        for (Kuenstler entry : getKuenstlerList()) {
+            if (entry.getKuenstlerID().equals(kuenstlerUUID)) {
+                kuenslter = entry;
+            }
+        }
+        return kuenslter;
+    }
+
+    /**
+     * liest die Künstler vom JSON-file
+     */
+    private void readKünstlerJSON() {
+        try {
+            String path = Config.getProperty("kuenstlerJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Kuenstler[] kuenstler = objectMapper.readValue(jsonData, Kuenstler[].class);
+            for (Kuenstler kuenstler1 : kuenstler) {
+                getKuenstlerList().add(kuenstler1);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * liest alle Bilder
      * @return list of bilder
      */
     public List<Bild> readAllBilder() {
@@ -49,7 +94,7 @@ public class DataHandler {
     }
 
     /**
-     * reads a bild by its uuid
+     * liest alle Bilder nach ihrer uuid
      * @param bildUUID
      * @return the bild (null=not found)
      */
@@ -65,7 +110,7 @@ public class DataHandler {
 
     /**
      * liest alle Ausstellungen
-     * @return liste von Ausstellungen
+     * @return list of Ausstellungen
      */
     public List<Ausstellung> readAllAusstellung() {
 
@@ -161,5 +206,21 @@ public class DataHandler {
         this.ausstellungList = ausstellungList;
     }
 
+    /**
+     * gets künstlerList
+     *
+     * @return value of austellungList
+     */
+    public List<Kuenstler> getKuenstlerList() {
+        return kuenstlerList;
+    }
 
+    /**
+     * sets künsterList
+     *
+     * @param kuenstlerList the value to set
+     */
+    public void setKuenstlerList(List<Kuenstler> kuenstlerList) {
+        this.kuenstlerList = kuenstlerList;
+    }
 }

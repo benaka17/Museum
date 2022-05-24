@@ -3,6 +3,7 @@ package ch.bzz.museum.service;
 import ch.bzz.museum.data.DataHandler;
 import ch.bzz.museum.model.Bild;
 import ch.bzz.museum.model.Ausstellung;
+import ch.bzz.museum.model.Kuenstler;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,46 +13,46 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("bild")
-public class BildService {
+@Path("kuenstler")
+public class KuenstlerService {
 
     /**
-     * liest eine liste von allen Bildern
-     * @return bild as JSON
+     * liest eine liste von allen Künstlern
+     * @return Künstler as JSON
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBilder(){
-        List<Bild> bildList = DataHandler.getInstance().readAllBilder();
+    public Response listKuenstler(){
+        List<Kuenstler> kuenstlerList = DataHandler.getInstance().readAllKünstler();
         return Response
                 .status(200)
-                .entity(bildList)
+                .entity(kuenstlerList)
                 .build();
     }
 
     /**
-     * liest eine liste von einem einzigen Bild
-     * @return bild as JSON
+     * liest eine liste von einem einzigen Künstler
+     * @return künstler as JSON
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readBild(
-            @QueryParam("uuid") String bildUUID
+    public Response readKuenstler(
+            @QueryParam("uuid") String kuenstlerUUID
     ) {
-        if (bildUUID.isEmpty()){ //falls uuid leer ist, exception werfen
+        if (kuenstlerUUID.isEmpty()){ //falls uuid leer ist, exception werfen
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();
         } else { //sonst die response wiedergeben
-            Bild bild = DataHandler.getInstance().readBildByUUID(bildUUID);
-            if (bild != null){
+            Kuenstler kuenstler = DataHandler.getInstance().readKünstlerByUUID(kuenstlerUUID);
+            if (kuenstler != null){
                 return Response
                         .status(200)
-                        .entity(bild)
+                        .entity(kuenstler)
                         .build();
             } else {
-                return Response.status(404).entity(bild).build();
+                return Response.status(404).entity(kuenstler).build();
             }
         }
     }
