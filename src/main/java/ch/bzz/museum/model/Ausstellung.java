@@ -2,8 +2,11 @@ package ch.bzz.museum.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.Date;
 import java.util.List;
+
+/**
+ * Die Ausstellungs-Klasse mit ID, Anzahl, Ort und Name (die BilderList wird ignoriert)
+ */
 
 public class Ausstellung {
 

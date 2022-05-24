@@ -10,7 +10,7 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * configure the web services and properties
+ * konfiguriert die web services und properties
  */
 
 @ApplicationPath("/resource")
@@ -35,7 +35,7 @@ public class Config extends Application {
     }
 
     /**
-     * Gets the value of a property
+     * Holt den Wert einer property
      *
      * @param property the key of the property to be read
      * @return the value of the property
@@ -67,7 +67,7 @@ public class Config extends Application {
     }
 
     /**
-     * Sets the properties
+     * Setzt die properties
      *
      * @param properties the value to set
      */

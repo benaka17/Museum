@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * reads and writes the data in the JSON-files
+ * liest und schreibt die Daten in den JSON-files
  */
 public class DataHandler {
     private static DataHandler instance = null;
@@ -171,7 +171,7 @@ public class DataHandler {
         }
     }
     /**
-     * gets bilderList
+     * holt bilderList
      *
      * @return value of bilderList
      */
@@ -180,7 +180,7 @@ public class DataHandler {
     }
 
     /**
-     * sets bilderList
+     * setzt bilderList
      *
      * @param bilderList the value to set
      */
@@ -189,7 +189,7 @@ public class DataHandler {
     }
 
     /**
-     * gets ausstellungList
+     * holt ausstellungList
      *
      * @return value of austellungList
      */
@@ -198,7 +198,7 @@ public class DataHandler {
     }
 
     /**
-     * sets ausstellungList
+     * setzt ausstellungList
      *
      * @param ausstellungList the value to set
      */
@@ -207,7 +207,7 @@ public class DataHandler {
     }
 
     /**
-     * gets künstlerList
+     * holt künstlerList
      *
      * @return value of austellungList
      */
@@ -216,7 +216,7 @@ public class DataHandler {
     }
 
     /**
-     * sets künsterList
+     * setzt künsterList
      *
      * @param kuenstlerList the value to set
      */

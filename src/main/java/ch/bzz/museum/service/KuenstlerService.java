@@ -1,8 +1,6 @@
 package ch.bzz.museum.service;
 
 import ch.bzz.museum.data.DataHandler;
-import ch.bzz.museum.model.Bild;
-import ch.bzz.museum.model.Ausstellung;
 import ch.bzz.museum.model.Kuenstler;
 
 import javax.ws.rs.GET;

@@ -2,7 +2,6 @@ package ch.bzz.museum.service;
 
 import ch.bzz.museum.data.DataHandler;
 import ch.bzz.museum.model.Bild;
-import ch.bzz.museum.model.Ausstellung;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

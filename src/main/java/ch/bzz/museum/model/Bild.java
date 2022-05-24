@@ -1,5 +1,9 @@
 package ch.bzz.museum.model;
 
+/**
+ * Die Bild Klasse für ein einzelnes Bild mit ID, Name, dem Künstler, Datum, Art und Preis
+ */
+
 public class Bild {
 
     //Attribute

@@ -7,6 +7,23 @@
 	"item": [
 		{
 			"name": "0.1 Testservice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Test erfolgreich\");",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -41,6 +58,27 @@
 		},
 		{
 			"name": "1.1 List all items from \"Bild\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test('Response is JSON', function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -64,6 +102,23 @@
 		},
 		{
 			"name": "1.2 List single item from \"Bild\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response is JSON', function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -93,6 +148,27 @@
 		},
 		{
 			"name": "2.1 List all items from \"Ausstellung\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test('Response is JSON', function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -116,6 +192,23 @@
 		},
 		{
 			"name": "2.2 List single item from \"Ausstellung\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response is JSON', function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -143,12 +236,117 @@
 			"response": []
 		},
 		{
-			"name": "3.1 Read unknown uuid",
+			"name": "3.1 List all items from \"Kuenstler\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test('Response is JSON', function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57ef",
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.2 List single item from \"Kuenstler\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response is JSON', function () {",
+							"    pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/read?uuid=74e632e6-d08d-4aac-96da-892d0a51114e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "74e632e6-d08d-4aac-96da-892d0a51114e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1 Read unknown uuid in \"Bild\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Should fail\", function(){",
+							"    pm.expect(false).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=empty",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -163,11 +361,101 @@
 					"query": [
 						{
 							"key": "uuid",
-							"value": "a8fcf250-34d5-44ce-ad2f-b869815e57ef"
+							"value": "empty"
 						}
 					]
 				},
 				"description": "Should display an error of some kind, since it is an invalid input"
+			},
+			"response": []
+		},
+		{
+			"name": "4.2 Read unknown uuid in \"Ausstellung\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Should fail\", function(){",
+							"    pm.expect(false).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=empty",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "empty"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.3 Read unknown uuid in \"Kuenstler\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Should fail\", function(){",
+							"    pm.expect(false).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/read?uuid=empty",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "empty"
+						}
+					]
+				}
 			},
 			"response": []
 		}
