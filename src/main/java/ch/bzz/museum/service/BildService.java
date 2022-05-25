@@ -3,13 +3,11 @@ package ch.bzz.museum.service;
 import ch.bzz.museum.data.DataHandler;
 import ch.bzz.museum.model.Bild;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.UUID;
 
 @Path("bild")
 public class BildService {
@@ -22,7 +20,7 @@ public class BildService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listBilder(){
-        List<Bild> bildList = DataHandler.getInstance().readAllBilder();
+        List<Bild> bildList = DataHandler.readAllBilder();
         return Response
                 .status(200)
                 .entity(bildList)
@@ -43,7 +41,7 @@ public class BildService {
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();
         } else { //sonst die response wiedergeben
-            Bild bild = DataHandler.getInstance().readBildByUUID(bildUUID);
+            Bild bild = DataHandler.readBildByUUID(bildUUID);
             if (bild != null){
                 return Response
                         .status(200)
@@ -54,5 +52,103 @@ public class BildService {
             }
         }
     }
+
+    /**
+     * updated ein Bild
+     * @param bildID
+     * @param name
+     * @param künstler
+     * @param datum
+     * @param art
+     * @param preis
+     * @return Response
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateBild(
+            @FormParam("bildID") String bildID,
+            @FormParam("name") String name,
+            @FormParam("künstler") String künstler,
+            @FormParam("datum") int datum,
+            @FormParam("art") String art,
+            @FormParam("preis") double preis
+    ) {
+        int httpstatus = 200;
+        Bild bild = DataHandler.readBildByUUID(bildID);
+        if (bild != null){
+            bild.setBildID(UUID.randomUUID().toString());
+            bild.setName(name);
+            bild.setKünstler(künstler);
+            bild.setDatum(datum);
+            bild.setArt(art);
+            bild.setPreis(preis);
+
+            DataHandler.updateBild();
+        } else {
+            httpstatus = 410;
+        }
+        return Response
+                .status(httpstatus)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * erstellt ein neues Bild
+     * @param name
+     * @param künstler
+     * @param datum
+     * @param art
+     * @param preis
+     * @return Response
+     */
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertBild(
+            @FormParam("name") String name,
+            @FormParam("künstler") String künstler,
+            @FormParam("datum") int datum,
+            @FormParam("art") String art,
+            @FormParam("preis") double preis
+
+    ) {
+        Bild bild = new Bild();
+        bild.setBildID(UUID.randomUUID().toString());
+        bild.setName(name);
+        bild.setKünstler(künstler);
+        bild.setDatum(datum);
+        bild.setArt(art);
+        bild.setPreis(preis);
+
+        DataHandler.insertBild(bild);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * löscht ein Bild durch die uuid
+     * @param bildUUID
+     * @return Response
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteBild(
+            @QueryParam("uuid") String bildUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.deleteBild(bildUUID)){
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
 
 }

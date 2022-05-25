@@ -1,15 +1,14 @@
 package ch.bzz.museum.service;
 
 import ch.bzz.museum.data.DataHandler;
+import ch.bzz.museum.model.Ausstellung;
 import ch.bzz.museum.model.Kuenstler;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.UUID;
 
 @Path("kuenstler")
 public class KuenstlerService {
@@ -22,7 +21,7 @@ public class KuenstlerService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listKuenstler(){
-        List<Kuenstler> kuenstlerList = DataHandler.getInstance().readAllKünstler();
+        List<Kuenstler> kuenstlerList = DataHandler.readAllKünstler();
         return Response
                 .status(200)
                 .entity(kuenstlerList)
@@ -43,7 +42,7 @@ public class KuenstlerService {
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();
         } else { //sonst die response wiedergeben
-            Kuenstler kuenstler = DataHandler.getInstance().readKünstlerByUUID(kuenstlerUUID);
+            Kuenstler kuenstler = DataHandler.readKünstlerByUUID(kuenstlerUUID);
             if (kuenstler != null){
                 return Response
                         .status(200)
@@ -54,5 +53,68 @@ public class KuenstlerService {
             }
         }
     }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateKuenstler(
+            @FormParam("kuenstlerID") String kuenstlerID,
+            @FormParam("name") String name,
+            @FormParam("geburtsdatum") String geburtsdatum
+    ) {
+        int httpstatus = 200;
+        Kuenstler kuenstler = DataHandler.readKünstlerByUUID(kuenstlerID);
+        if (kuenstler != null){
+            kuenstler.setKuenstlerID(UUID.randomUUID().toString());
+            kuenstler.setName(name);
+            kuenstler.setGeburtsdatum(geburtsdatum);
+            kuenstler.setName(name);
+
+            DataHandler.updateKuenstler();
+        } else {
+            httpstatus = 410;
+        }
+        return Response
+                .status(httpstatus)
+                .entity("")
+                .build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertKuenstler(
+            @FormParam("name") String name,
+            @FormParam("geburtsdatum") String geburtsdatum
+
+    ) {
+        Kuenstler kuenstler = new Kuenstler();
+        kuenstler.setKuenstlerID(UUID.randomUUID().toString());
+        kuenstler.setName(name);
+        kuenstler.setGeburtsdatum(geburtsdatum);
+
+        DataHandler.insertKuenstler(kuenstler);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteKuenstler(
+            @QueryParam("uuid") String kuenstlerID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.deleteKuenstler(kuenstlerID)){
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
 
 }
