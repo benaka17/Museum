@@ -21,7 +21,7 @@ public class KuenstlerService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listKuenstler(){
-        List<Kuenstler> kuenstlerList = DataHandler.readAllKünstler();
+        List<Kuenstler> kuenstlerList = DataHandler.readAllKuenstler();
         return Response
                 .status(200)
                 .entity(kuenstlerList)
@@ -42,7 +42,7 @@ public class KuenstlerService {
             new IllegalArgumentException("Error. Illegal argument.");
             return Response.status(400).entity(null).build();
         } else { //sonst die response wiedergeben
-            Kuenstler kuenstler = DataHandler.readKünstlerByUUID(kuenstlerUUID);
+            Kuenstler kuenstler = DataHandler.readKuenstlerByUUID(kuenstlerUUID);
             if (kuenstler != null){
                 return Response
                         .status(200)
@@ -63,7 +63,7 @@ public class KuenstlerService {
             @FormParam("geburtsdatum") String geburtsdatum
     ) {
         int httpstatus = 200;
-        Kuenstler kuenstler = DataHandler.readKünstlerByUUID(kuenstlerID);
+        Kuenstler kuenstler = DataHandler.readKuenstlerByUUID(kuenstlerID);
         if (kuenstler != null){
             kuenstler.setKuenstlerID(UUID.randomUUID().toString());
             kuenstler.setName(name);

@@ -18,8 +18,7 @@ import java.util.List;
 /**
  * liest und schreibt die Daten in den JSON-files
  */
-public class DataHandler {
-    private static DataHandler instance;
+public final class DataHandler {
     private static List<Bild> bilderList;
     private static List<Ausstellung> ausstellungList;
     private static List<Kuenstler> kuenstlerList;
@@ -31,21 +30,11 @@ public class DataHandler {
     }
 
     /**
-     * gets the only instance of this class
-     * @return instance
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
-    }
-
-    /**
      * liest alle Künstler
      * @return liste von allen künstlern
      */
-    public static List<Kuenstler> readAllKünstler() {
-        return kuenstlerList;
+    public static List<Kuenstler> readAllKuenstler() {
+        return getKuenstlerList();
     }
 
     /**
@@ -53,7 +42,7 @@ public class DataHandler {
      * @param kuenstlerUUID
      * @return the künstler (null=not found)
      */
-    public static Kuenstler readKünstlerByUUID(String kuenstlerUUID) {
+    public static Kuenstler readKuenstlerByUUID(String kuenstlerUUID) {
         Kuenstler kuenslter = null;
         for (Kuenstler entry : getKuenstlerList()) {
             if (entry.getKuenstlerID().equals(kuenstlerUUID)) {
@@ -66,7 +55,7 @@ public class DataHandler {
     /**
      * liest die Künstler vom JSON-file
      */
-    public static void readKünstlerJSON() {
+    public static void readKuenstlerJSON() {
         try {
             String path = Config.getProperty("kuenstlerJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -87,7 +76,7 @@ public class DataHandler {
      * @return list of bilder
      */
     public static List<Bild> readAllBilder() {
-        return bilderList;
+        return getBilderList();
     }
 
     /**
@@ -110,7 +99,7 @@ public class DataHandler {
      * @return list of Ausstellungen
      */
     public static List<Ausstellung> readAllAusstellung() {
-        return ausstellungList;
+        return getAusstellungList();
     }
 
     /**
@@ -185,7 +174,7 @@ public class DataHandler {
      * @param bilderList the value to set
      */
     public static void setBilderList(List<Bild> bilderList) {
-        bilderList = bilderList;
+        DataHandler.bilderList = bilderList;
     }
 
     /**
@@ -208,7 +197,7 @@ public class DataHandler {
      * @param ausstellungList the value to set
      */
     public static void setAusstellungList(List<Ausstellung> ausstellungList) {
-        ausstellungList = ausstellungList;
+        DataHandler.ausstellungList = ausstellungList;
     }
 
     /**
@@ -217,6 +206,10 @@ public class DataHandler {
      * @return value of austellungList
      */
     public static List<Kuenstler> getKuenstlerList() {
+        if (kuenstlerList == null){
+            setKuenstlerList(new ArrayList<>());
+            readKuenstlerJSON();
+        }
         return kuenstlerList;
     }
 
@@ -226,7 +219,7 @@ public class DataHandler {
      * @param kuenstlerList the value to set
      */
     public static void setKuenstlerList(List<Kuenstler> kuenstlerList) {
-        kuenstlerList = kuenstlerList;
+        DataHandler.kuenstlerList = kuenstlerList;
     }
 
     /**
@@ -341,7 +334,7 @@ public class DataHandler {
     }
 
     public static boolean deleteKuenstler(String kuenstlerID) {
-        Kuenstler kuenstler = readKünstlerByUUID(kuenstlerID);
+        Kuenstler kuenstler = readKuenstlerByUUID(kuenstlerID);
         if (kuenstler != null) {
             getKuenstlerList().remove(kuenstler);
             writeKuenstlerJSON();
