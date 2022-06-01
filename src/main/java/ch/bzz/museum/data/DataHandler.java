@@ -29,6 +29,11 @@ public final class DataHandler {
     private DataHandler() {
     }
 
+    public static void initLists() {
+        DataHandler.setBilderList(null);
+        DataHandler.setAusstellungList(null);
+    }
+
     /**
      * liest alle Künstler
      * @return liste von allen künstlern

@@ -1,5 +1,9 @@
 package ch.bzz.museum.model;
 
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
+import java.math.BigDecimal;
+
 /**
  * Die Bild Klasse für ein einzelnes Bild mit ID, Name, dem Künstler, Datum, Art und Preis
  */
@@ -7,12 +11,34 @@ package ch.bzz.museum.model;
 public class Bild {
 
     //Attribute
+    @FormParam("bookUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String bildID;
+
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String name;
-    private String künstler;
+
+    @FormParam("kuenstler")
+    @NotEmpty
+    @Size(min=5, max=40)
+    private String kuenstler;
+
+    @FormParam("datum")
+    @NotEmpty
+    @Size(min=4, max=4)
     private Integer datum; //Wrapper-Klasse benutzt, da Fehler vorkamen ohne
+
+    @FormParam("art")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String art; //Kategorien wie "modern"
-    private double preis;
+
+    @FormParam("preis")
+    @DecimalMax(value="999999999.95")
+    @DecimalMin(value="0.05")
+    private BigDecimal preis;
     /*
     private Ausstellung ausstellung;
      */
@@ -53,16 +79,16 @@ public class Bild {
      * Getter für den Künstler
      * @return künstler
      */
-    public String getKünstler() {
-        return künstler;
+    public String getKuenstler() {
+        return kuenstler;
     }
 
     /**
      * Setter für einen Künstler
-     * @param künstler
+     * @param kuenstler
      */
-    public void setKünstler(String künstler) {
-        this.künstler = künstler;
+    public void setKuenstler(String kuenstler) {
+        this.kuenstler = kuenstler;
     }
 
     /**
@@ -101,7 +127,7 @@ public class Bild {
      * Holt den Preis eines Bildes
      * @return preis
      */
-    public double getPreis() {
+    public BigDecimal getPreis() {
         return preis;
     }
 
@@ -109,7 +135,7 @@ public class Bild {
      * Setter für den Preis
      * @param preis
      */
-    public void setPreis(double preis) {
+    public void setPreis(BigDecimal preis) {
         this.preis = preis;
     }
 

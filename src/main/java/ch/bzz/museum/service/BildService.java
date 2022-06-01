@@ -3,9 +3,13 @@ package ch.bzz.museum.service;
 import ch.bzz.museum.data.DataHandler;
 import ch.bzz.museum.model.Bild;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,6 +39,8 @@ public class BildService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readBild(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String bildUUID
     ) {
         if (bildUUID.isEmpty()){ //falls uuid leer ist, exception werfen
@@ -55,34 +61,26 @@ public class BildService {
 
     /**
      * updated ein Bild
-     * @param bildID
-     * @param name
-     * @param künstler
-     * @param datum
-     * @param art
-     * @param preis
      * @return Response
      */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateBild(
-            @FormParam("bildID") String bildID,
-            @FormParam("name") String name,
-            @FormParam("künstler") String künstler,
-            @FormParam("datum") int datum,
-            @FormParam("art") String art,
-            @FormParam("preis") double preis
+            @Valid @BeanParam Bild bild,
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String bildUUID
     ) {
         int httpstatus = 200;
-        Bild bild = DataHandler.readBildByUUID(bildID);
-        if (bild != null){
-            bild.setBildID(UUID.randomUUID().toString());
-            bild.setName(name);
-            bild.setKünstler(künstler);
-            bild.setDatum(datum);
-            bild.setArt(art);
-            bild.setPreis(preis);
+        Bild oldBild = DataHandler.readBildByUUID(bild.getBildID());
+        if (oldBild != null){
+            oldBild.setBildID(UUID.randomUUID().toString());
+            oldBild.setName(bild.getName());
+            oldBild.setKuenstler(bild.getKuenstler());
+            oldBild.setDatum(bild.getDatum());
+            oldBild.setArt(bild.getArt());
+            oldBild.setPreis(bild.getPreis());
 
             DataHandler.updateBild();
         } else {
@@ -96,31 +94,15 @@ public class BildService {
 
     /**
      * erstellt ein neues Bild
-     * @param name
-     * @param künstler
-     * @param datum
-     * @param art
-     * @param preis
      * @return Response
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertBild(
-            @FormParam("name") String name,
-            @FormParam("künstler") String künstler,
-            @FormParam("datum") int datum,
-            @FormParam("art") String art,
-            @FormParam("preis") double preis
-
+            @Valid @BeanParam Bild bild
     ) {
-        Bild bild = new Bild();
         bild.setBildID(UUID.randomUUID().toString());
-        bild.setName(name);
-        bild.setKünstler(künstler);
-        bild.setDatum(datum);
-        bild.setArt(art);
-        bild.setPreis(preis);
 
         DataHandler.insertBild(bild);
         return Response
@@ -138,6 +120,8 @@ public class BildService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteBild(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String bildUUID
     ) {
         int httpStatus = 200;
