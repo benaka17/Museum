@@ -1,14 +1,20 @@
 package ch.bzz.museum.service;
 
 import ch.bzz.museum.data.DataHandler;
-import ch.bzz.museum.model.Ausstellung;
 import ch.bzz.museum.model.Kuenstler;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * Service für den Künstler
+ */
 
 @Path("kuenstler")
 public class KuenstlerService {
@@ -36,6 +42,8 @@ public class KuenstlerService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readKuenstler(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String kuenstlerUUID
     ) {
         if (kuenstlerUUID.isEmpty()){ //falls uuid leer ist, exception werfen
@@ -54,21 +62,28 @@ public class KuenstlerService {
         }
     }
 
+    /**
+     * updated einen einzigen Künstler
+     * @param kuenstler
+     * @param kuenstlerID
+     * @return
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateKuenstler(
-            @FormParam("kuenstlerID") String kuenstlerID,
-            @FormParam("name") String name,
-            @FormParam("geburtsdatum") String geburtsdatum
+            @Valid @BeanParam Kuenstler kuenstler,
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("kuenstlerID") String kuenstlerID
     ) {
         int httpstatus = 200;
-        Kuenstler kuenstler = DataHandler.readKuenstlerByUUID(kuenstlerID);
-        if (kuenstler != null){
-            kuenstler.setKuenstlerID(UUID.randomUUID().toString());
-            kuenstler.setName(name);
-            kuenstler.setGeburtsdatum(geburtsdatum);
-            kuenstler.setName(name);
+        Kuenstler oldKuenstler = DataHandler.readKuenstlerByUUID(kuenstler.getKuenstlerID());
+        if (oldKuenstler != null){
+            oldKuenstler.setKuenstlerID(UUID.randomUUID().toString());
+            oldKuenstler.setName(kuenstler.getName());
+            oldKuenstler.setGeburtsdatum(kuenstler.getGeburtsdatum());
+            oldKuenstler.setName(kuenstler.getName());
 
             DataHandler.updateKuenstler();
         } else {
@@ -80,18 +95,18 @@ public class KuenstlerService {
                 .build();
     }
 
+    /**
+     * erstellt einen Künstler
+     * @param kuenstler
+     * @return
+     */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertKuenstler(
-            @FormParam("name") String name,
-            @FormParam("geburtsdatum") String geburtsdatum
-
+            @Valid @BeanParam Kuenstler kuenstler
     ) {
-        Kuenstler kuenstler = new Kuenstler();
         kuenstler.setKuenstlerID(UUID.randomUUID().toString());
-        kuenstler.setName(name);
-        kuenstler.setGeburtsdatum(geburtsdatum);
 
         DataHandler.insertKuenstler(kuenstler);
         return Response
@@ -100,10 +115,17 @@ public class KuenstlerService {
                 .build();
     }
 
+    /**
+     * löscht einen Künstler
+     * @param kuenstlerID
+     * @return
+     */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteKuenstler(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String kuenstlerID
     ) {
         int httpStatus = 200;

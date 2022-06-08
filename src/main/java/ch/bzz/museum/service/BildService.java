@@ -9,9 +9,12 @@ import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * Service für die Bilder
+ */
 
 @Path("bild")
 public class BildService {
@@ -70,7 +73,7 @@ public class BildService {
             @Valid @BeanParam Bild bild,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("uuid") String bildUUID
+            @FormParam("uuid") String bildUUID
     ) {
         int httpstatus = 200;
         Bild oldBild = DataHandler.readBildByUUID(bild.getBildID());

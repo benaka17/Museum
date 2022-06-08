@@ -2,6 +2,8 @@ package ch.bzz.museum.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
 import java.util.List;
 
 /**
@@ -11,9 +13,23 @@ import java.util.List;
 public class Ausstellung {
 
     //Attribute
+    @FormParam("museumID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String museumID;
+
+    @FormParam("anzBilder")
+    @NotEmpty
+    @Min(1)
     private int anzBilder;
+
+    @FormParam("ort")
+    @NotEmpty
+    @Size(min=2, max=40)
     private String ort;
+
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String name;
     @JsonIgnore
     private List<Bild> bilderList;

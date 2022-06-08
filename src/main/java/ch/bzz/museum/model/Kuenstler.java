@@ -1,5 +1,10 @@
 package ch.bzz.museum.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+
 /**
  * Die Künstler Klasse um Künstler zu erstellen; ID, Name und Geburtsdatum vorhanden
  */
@@ -7,8 +12,18 @@ package ch.bzz.museum.model;
 public class Kuenstler {
 
     //Attribute
+    @FormParam("kuenstlerID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String kuenstlerID;
+
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String name;
+
+    @FormParam("geburtsdatum")
+    @NotEmpty
+    @Size(min=5, max=5)
     private String geburtsdatum;
 
     /**
