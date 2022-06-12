@@ -24,7 +24,7 @@ public final class DataHandler {
     private static List<Kuenstler> kuenstlerList;
 
     /**
-     * private constructor defeats instantiation
+     * private constructor damit keine instanzen erstellt werden
      */
     private DataHandler() {
     }
@@ -273,13 +273,18 @@ public final class DataHandler {
         writeBildJSON();
     }
 
-    //TODO TRENNUNG
-
+    /**
+     * fügt eine Ausstellung hinzu
+     * @param ausstellung
+     */
     public static void insertAusstellung(Ausstellung ausstellung) {
         getAusstellungList().add(ausstellung);
         writeAusstellungJSON();
     }
 
+    /**
+     * Schreibt das JSON für die Ausstellung
+     */
     private static void writeAusstellungJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
@@ -296,10 +301,18 @@ public final class DataHandler {
         }
     }
 
+    /**
+     * updated die Ausstellung
+     */
     public static void updateAusstellung() {
         writeAusstellungJSON();
     }
 
+    /**
+     * löscht die Ausstellung
+     * @param museumID
+     * @return
+     */
     public static boolean deleteAusstellung(String museumID) {
         Ausstellung ausstellung = readAusstellungByUUID(museumID);
         if (ausstellung != null) {
@@ -311,13 +324,18 @@ public final class DataHandler {
         }
     }
 
-    //TODO TRENNUNG
-
+    /**
+     * fügt einen Künstler hinzu
+     * @param kuenstler
+     */
     public static void insertKuenstler(Kuenstler kuenstler) {
         getKuenstlerList().add(kuenstler);
         writeKuenstlerJSON();
     }
 
+    /**
+     * schreibt das JSON für die Künstler
+     */
     private static void writeKuenstlerJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
@@ -334,10 +352,18 @@ public final class DataHandler {
         }
     }
 
+    /**
+     * updated einen Künstler
+     */
     public static void updateKuenstler() {
         writeKuenstlerJSON();
     }
 
+    /**
+     * löscht einen Künstler
+     * @param kuenstlerID
+     * @return
+     */
     public static boolean deleteKuenstler(String kuenstlerID) {
         Kuenstler kuenstler = readKuenstlerByUUID(kuenstlerID);
         if (kuenstler != null) {
