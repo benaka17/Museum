@@ -23,7 +23,7 @@ public class Kuenstler {
 
     @FormParam("geburtsdatum")
     @NotEmpty
-    @Size(min=5, max=5)
+    @Size(min=10, max=10)
     private String geburtsdatum;
 
     /**
