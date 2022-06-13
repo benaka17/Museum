@@ -1,18 +1,18 @@
 {
-	"id": "9ab946c7-837f-4aae-82f9-8fb64aea41b1",
+	"id": "e3729772-cf76-440f-8624-5680e6eb792d",
 	"name": "Museum",
-	"timestamp": "2022-05-24T15:09:10.614Z",
+	"timestamp": "2022-06-13T18:46:42.661Z",
 	"collection_id": "3c72380c-31e4-4db2-91c8-13ecb3d839a3",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 17,
-	"totalFail": 3,
+	"totalPass": 28,
+	"totalFail": 26,
 	"results": [
 		{
 			"id": "f0a883ec-6cbd-431d-b84c-4e955e57ff60",
 			"name": "0.1 Testservice",
 			"url": "http://localhost:8080/Museum-1.0/resource/test/test",
-			"time": 55,
+			"time": 1121,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -32,7 +32,7 @@
 				}
 			},
 			"times": [
-				55
+				1121
 			],
 			"allTests": [
 				{
@@ -45,14 +45,14 @@
 			"id": "6925c9da-6766-43be-808d-559cf1d7404b",
 			"name": "1.1 List all items from \"Bild\"",
 			"url": "http://localhost:8080/Museum-1.0/resource/bild/list",
-			"time": 19,
+			"time": 1311,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
 				"Status code is 200": true,
-				"Response time is less than 200ms": true,
+				"Response time is less than 200ms": false,
 				"Response is JSON": true
 			},
 			"testPassFailCounts": {
@@ -61,8 +61,8 @@
 					"fail": 0
 				},
 				"Response time is less than 200ms": {
-					"pass": 1,
-					"fail": 0
+					"pass": 0,
+					"fail": 1
 				},
 				"Response is JSON": {
 					"pass": 1,
@@ -70,12 +70,12 @@
 				}
 			},
 			"times": [
-				19
+				1311
 			],
 			"allTests": [
 				{
 					"Status code is 200": true,
-					"Response time is less than 200ms": true,
+					"Response time is less than 200ms": false,
 					"Response is JSON": true
 				}
 			]
@@ -84,7 +84,7 @@
 			"id": "9fba2eba-4ece-4bd2-b059-59cfef691494",
 			"name": "1.2 List single item from \"Bild\"",
 			"url": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57fe",
-			"time": 12,
+			"time": 48,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -104,7 +104,7 @@
 				}
 			},
 			"times": [
-				12
+				48
 			],
 			"allTests": [
 				{
@@ -117,7 +117,7 @@
 			"id": "21c5a6d2-fd74-4239-a93c-39decce57989",
 			"name": "2.1 List all items from \"Ausstellung\"",
 			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/list",
-			"time": 26,
+			"time": 88,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -142,7 +142,7 @@
 				}
 			},
 			"times": [
-				26
+				88
 			],
 			"allTests": [
 				{
@@ -156,7 +156,7 @@
 			"id": "a0c35978-23f4-41db-b988-95944c174d31",
 			"name": "2.2 List single item from \"Ausstellung\"",
 			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=421c2deb-7594-4495-b565-4d41f113bfd9",
-			"time": 31,
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -176,7 +176,7 @@
 				}
 			},
 			"times": [
-				31
+				7
 			],
 			"allTests": [
 				{
@@ -189,7 +189,7 @@
 			"id": "009ef0a6-a050-4cee-a243-b689ffe8b793",
 			"name": "3.1 List all items from \"Kuenstler\"",
 			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/list",
-			"time": 17,
+			"time": 78,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -214,7 +214,7 @@
 				}
 			},
 			"times": [
-				17
+				78
 			],
 			"allTests": [
 				{
@@ -228,7 +228,7 @@
 			"id": "31ca6bdd-1e5b-4385-b2eb-3a2c39414723",
 			"name": "3.2 List single item from \"Kuenstler\"",
 			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/read?uuid=74e632e6-d08d-4aac-96da-892d0a51114e",
-			"time": 44,
+			"time": 9,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -248,7 +248,7 @@
 				}
 			},
 			"times": [
-				44
+				9
 			],
 			"allTests": [
 				{
@@ -261,10 +261,361 @@
 			"id": "722b3a45-bebe-46a1-ae90-883f46e840b6",
 			"name": "4.1 Read unknown uuid in \"Bild\"",
 			"url": "http://localhost:8080/Museum-1.0/resource/bild/read?uuid=empty",
+			"time": 176,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				176
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "0aa6a71d-21ab-4c94-be8a-52cd817a328e",
+			"name": "4.2 Read unknown uuid in \"Ausstellung\"",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=empty",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "2e907bae-43dd-4132-98a6-c6ca19cfdfde",
+			"name": "4.3 Read unknown uuid in \"Kuenstler\"",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/read?uuid=empty",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "4426bf96-36b6-4b8e-85b9-78fb8304bbee",
+			"name": "5.1 Delete a \"Bild\"",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/delete?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57fe",
+			"time": 150,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				150
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "35c9c122-e32f-4d9e-86f5-a800c683be36",
+			"name": "5.2 delete unknown Bild",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/delete?uuid=false",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "6d263c8f-e53d-469c-83b8-6a33adf18998",
+			"name": "5.3 delete a Kuenstler",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/delete?uuid=74e632e6-d08d-4aac-96da-892d0a51114e",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "9d954e03-59fb-4b5f-80da-0682ec77898e",
+			"name": "5.4 delete unkown Kuenstler",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/delete?uuid=false",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "155feacb-a868-40a2-8719-ea9ffb824484",
+			"name": "5.5 delete Ausstellung",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=421c2deb-7594-4495-b565-4d41f113bfd9",
+			"time": 24,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "ec1d37f9-1a72-4aa5-82e1-cb7bfb1fcde1",
+			"name": "5.6 delete unknown Ausstellung",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=false",
+			"time": 15,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "11771b32-264d-47d7-b276-34761fa4172d",
+			"name": "6.1 create Bild",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 649,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				649
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "6ad8d769-12fc-4885-9966-aeed60349af2",
+			"name": "6.1.1 name too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 15,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "bf9f32d7-bb5d-465e-abe2-81c31c4853af",
+			"name": "6.1.1 name too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 42,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				42
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "f9964450-60a4-4eb3-9968-4b7f60d0cdf3",
+			"name": "6.1.2 art too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 30,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				30
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "65434df9-b507-4ecc-a039-d6acde7a1c10",
+			"name": "6.1.2 art too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
 			"time": 17,
 			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
+				"code": 500,
+				"name": "Internal Server Error"
 			},
 			"tests": {
 				"Status code is 400": false
@@ -285,13 +636,607 @@
 			]
 		},
 		{
-			"id": "0aa6a71d-21ab-4c94-be8a-52cd817a328e",
-			"name": "4.2 Read unknown uuid in \"Ausstellung\"",
-			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=empty",
+			"id": "063b336b-49d3-4196-a6da-f6b3a3642dd8",
+			"name": "6.1.3 preis too low",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 37,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "2129c3b4-bc08-4916-9576-370a7c3ec679",
+			"name": "6.1.3 preis too high",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 28,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				28
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "2b681779-ebbf-47b0-ace1-13b8383d0b30",
+			"name": "6.1.4 datum too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 13,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "e44deede-8cf0-4b10-88f0-f84063477602",
+			"name": "6.1.4 datum too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 23,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "68fe2e54-b060-4e33-b93c-1f5286f8c012",
+			"name": "6.1.5 kuenstler too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 45,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				45
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "6dd94aad-c754-458c-8608-6f14a5d81003",
+			"name": "6.1.5 kuenstler too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/create",
+			"time": 14,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "23a1fd38-fa69-4c2e-bbfa-d2376f140205",
+			"name": "6.2 create Kuenstler",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+			"time": 37,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "ffcb47b7-6a3d-49aa-8fdb-25e11172e4a4",
+			"name": "6.2.1 name too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+			"time": 48,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				48
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "76c42b4b-9c25-47ff-bb1a-349dd303da86",
+			"name": "6.2.1 name too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+			"time": 68,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				68
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "6134c603-642c-4502-a74c-abc950931e9f",
+			"name": "6.2 geburtsdatum too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+			"time": 44,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				44
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "b5ad0244-7168-498e-bfd5-f05cc205e6ba",
+			"name": "6.2 geburtsdatum too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+			"time": 60,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				60
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "70b4c517-aef8-4978-bbe7-83d9b0b40fc7",
+			"name": "6.3 create Ausstellung",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+			"time": 81,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "5ad27784-9f1b-4ccd-b04c-464fda8b50e0",
+			"name": "6.3.1 anzBilder too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+			"time": 25,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "6aeec503-e200-4958-a591-999814a1fd96",
+			"name": "6.3.2 ort too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+			"time": 35,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "f952f753-3746-4766-bb56-48cc7629ee0f",
+			"name": "6.3.2 ort too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+			"time": 13,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "0b4df03e-d662-4548-a616-94f21d5cc643",
+			"name": "6.3.3 name too short",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+			"time": 102,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				102
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "51f52e8e-9850-46cc-93f1-fcae72c708ad",
+			"name": "6.3.3 name too long",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+			"time": 39,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				39
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "63d69c22-2d19-4912-a3b6-9fc4ae9397d7",
+			"name": "7.1 update Bild",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/update",
+			"time": 22,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "afbd4d04-8967-45a2-9506-2bf607790fd2",
+			"name": "7.1 update uknown Bild",
+			"url": "http://localhost:8080/Museum-1.0/resource/bild/update",
+			"time": 14,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 400": false
+				}
+			]
+		},
+		{
+			"id": "7779a475-d937-4c68-877b-da5e113c9060",
+			"name": "7.2 update Kuenstler",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/update",
+			"time": 13,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "def87e20-c96d-47e1-8287-6553f9d43021",
+			"name": "7.2 update unkown Kuenstler",
+			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/update",
+			"time": 26,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status code is 400": true
+				}
+			]
+		},
+		{
+			"id": "7958c27a-e3a6-4d5a-901b-d044e2d9bc21",
+			"name": "7.3 update Ausstellung",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/update",
+			"time": 11,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "a295d239-f259-4284-97e7-7cf83f994b28",
+			"name": "7.3 update unkown Ausstellung",
+			"url": "http://localhost:8080/Museum-1.0/resource/ausstellung/update",
 			"time": 19,
 			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
+				"code": 500,
+				"name": "Internal Server Error"
 			},
 			"tests": {
 				"Status code is 400": false
@@ -310,37 +1255,10 @@
 					"Status code is 400": false
 				}
 			]
-		},
-		{
-			"id": "2e907bae-43dd-4132-98a6-c6ca19cfdfde",
-			"name": "4.3 Read unknown uuid in \"Kuenstler\"",
-			"url": "http://localhost:8080/Museum-1.0/resource/kuenstler/read?uuid=empty",
-			"time": 10,
-			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
-			},
-			"tests": {
-				"Status code is 400": false
-			},
-			"testPassFailCounts": {
-				"Status code is 400": {
-					"pass": 0,
-					"fail": 1
-				}
-			},
-			"times": [
-				10
-			],
-			"allTests": [
-				{
-					"Status code is 400": false
-				}
-			]
 		}
 	],
 	"count": 1,
-	"totalTime": 250,
+	"totalTime": 4661,
 	"collection": {
 		"requests": [
 			{
@@ -382,6 +1300,142 @@
 			{
 				"id": "2e907bae-43dd-4132-98a6-c6ca19cfdfde",
 				"method": "GET"
+			},
+			{
+				"id": "4426bf96-36b6-4b8e-85b9-78fb8304bbee",
+				"method": "DELETE"
+			},
+			{
+				"id": "35c9c122-e32f-4d9e-86f5-a800c683be36",
+				"method": "DELETE"
+			},
+			{
+				"id": "6d263c8f-e53d-469c-83b8-6a33adf18998",
+				"method": "DELETE"
+			},
+			{
+				"id": "9d954e03-59fb-4b5f-80da-0682ec77898e",
+				"method": "DELETE"
+			},
+			{
+				"id": "155feacb-a868-40a2-8719-ea9ffb824484",
+				"method": "DELETE"
+			},
+			{
+				"id": "ec1d37f9-1a72-4aa5-82e1-cb7bfb1fcde1",
+				"method": "DELETE"
+			},
+			{
+				"id": "11771b32-264d-47d7-b276-34761fa4172d",
+				"method": "POST"
+			},
+			{
+				"id": "6ad8d769-12fc-4885-9966-aeed60349af2",
+				"method": "POST"
+			},
+			{
+				"id": "bf9f32d7-bb5d-465e-abe2-81c31c4853af",
+				"method": "POST"
+			},
+			{
+				"id": "f9964450-60a4-4eb3-9968-4b7f60d0cdf3",
+				"method": "POST"
+			},
+			{
+				"id": "65434df9-b507-4ecc-a039-d6acde7a1c10",
+				"method": "POST"
+			},
+			{
+				"id": "063b336b-49d3-4196-a6da-f6b3a3642dd8",
+				"method": "POST"
+			},
+			{
+				"id": "2129c3b4-bc08-4916-9576-370a7c3ec679",
+				"method": "POST"
+			},
+			{
+				"id": "2b681779-ebbf-47b0-ace1-13b8383d0b30",
+				"method": "POST"
+			},
+			{
+				"id": "e44deede-8cf0-4b10-88f0-f84063477602",
+				"method": "POST"
+			},
+			{
+				"id": "68fe2e54-b060-4e33-b93c-1f5286f8c012",
+				"method": "POST"
+			},
+			{
+				"id": "6dd94aad-c754-458c-8608-6f14a5d81003",
+				"method": "POST"
+			},
+			{
+				"id": "23a1fd38-fa69-4c2e-bbfa-d2376f140205",
+				"method": "POST"
+			},
+			{
+				"id": "ffcb47b7-6a3d-49aa-8fdb-25e11172e4a4",
+				"method": "POST"
+			},
+			{
+				"id": "76c42b4b-9c25-47ff-bb1a-349dd303da86",
+				"method": "POST"
+			},
+			{
+				"id": "6134c603-642c-4502-a74c-abc950931e9f",
+				"method": "POST"
+			},
+			{
+				"id": "b5ad0244-7168-498e-bfd5-f05cc205e6ba",
+				"method": "POST"
+			},
+			{
+				"id": "70b4c517-aef8-4978-bbe7-83d9b0b40fc7",
+				"method": "POST"
+			},
+			{
+				"id": "5ad27784-9f1b-4ccd-b04c-464fda8b50e0",
+				"method": "POST"
+			},
+			{
+				"id": "6aeec503-e200-4958-a591-999814a1fd96",
+				"method": "POST"
+			},
+			{
+				"id": "f952f753-3746-4766-bb56-48cc7629ee0f",
+				"method": "POST"
+			},
+			{
+				"id": "0b4df03e-d662-4548-a616-94f21d5cc643",
+				"method": "POST"
+			},
+			{
+				"id": "51f52e8e-9850-46cc-93f1-fcae72c708ad",
+				"method": "POST"
+			},
+			{
+				"id": "63d69c22-2d19-4912-a3b6-9fc4ae9397d7",
+				"method": "PUT"
+			},
+			{
+				"id": "afbd4d04-8967-45a2-9506-2bf607790fd2",
+				"method": "PUT"
+			},
+			{
+				"id": "7779a475-d937-4c68-877b-da5e113c9060",
+				"method": "PUT"
+			},
+			{
+				"id": "def87e20-c96d-47e1-8287-6553f9d43021",
+				"method": "PUT"
+			},
+			{
+				"id": "7958c27a-e3a6-4d5a-901b-d044e2d9bc21",
+				"method": "PUT"
+			},
+			{
+				"id": "a295d239-f259-4284-97e7-7cf83f994b28",
+				"method": "PUT"
 			}
 		]
 	}

@@ -54,6 +54,14 @@ public class TestService {
             fileOutputStream = new FileOutputStream(Config.getProperty("ausstellungJSON"));
             fileOutputStream.write(ausstellungJSON);
 
+            path = Paths.get(Config.getProperty("kuenstlerJSON"));
+            filename = path.getFileName().toString();
+            folder = path.getParent().toString();
+
+            byte[] kuenstlerJSON = Files.readAllBytes(Paths.get(folder, "backup", filename));
+            fileOutputStream = new FileOutputStream(Config.getProperty("kuenstlerJSON"));
+            fileOutputStream.write(kuenstlerJSON);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

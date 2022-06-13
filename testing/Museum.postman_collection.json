@@ -332,10 +332,6 @@
 						"exec": [
 							"pm.test(\"Status code is 400\", function () {",
 							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Should fail\", function(){",
-							"    pm.expect(false).to.eql(true);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -378,10 +374,6 @@
 						"exec": [
 							"pm.test(\"Status code is 400\", function () {",
 							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Should fail\", function(){",
-							"    pm.expect(false).to.eql(true);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -423,10 +415,6 @@
 						"exec": [
 							"pm.test(\"Status code is 400\", function () {",
 							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Should fail\", function(){",
-							"    pm.expect(false).to.eql(true);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -454,6 +442,1917 @@
 							"key": "uuid",
 							"value": "empty"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.1 Delete a \"Bild\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/delete?uuid=a8fcf250-34d5-44ce-ad2f-b869815e57fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "a8fcf250-34d5-44ce-ad2f-b869815e57fe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.2 delete unknown Bild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/delete?uuid=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.3 delete a Kuenstler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/delete?uuid=74e632e6-d08d-4aac-96da-892d0a51114e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "74e632e6-d08d-4aac-96da-892d0a51114e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.4 delete unkown Kuenstler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/delete?uuid=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.5 delete Ausstellung",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=421c2deb-7594-4495-b565-4d41f113bfd9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "421c2deb-7594-4495-b565-4d41f113bfd9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.6 delete unknown Ausstellung",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/read?uuid=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1 create Bild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Bild",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.1 name too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "This name will be faaaaaar too long okokok",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.1 name too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "ok",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.2 art too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "this category will be faaaaar too long okokok",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.2 art too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "ok",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.3 preis too low",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "0.00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.3 preis too high",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "999999999999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.4 datum too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "11111",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.4 datum too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "111",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.5 kuenstler too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "New Kuenstler that is faaaar tooo long ok",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1.5 kuenstler too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "ok",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Moderne Kunst",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.2 create Kuenstler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "2022-06-10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.2.1 name too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "ok",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "2022-06-10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.2.1 name too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name that is waaaay too long okokok",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "2022-06-10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.2 geburtsdatum too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.2 geburtsdatum too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "morethan10chars",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3 create Ausstellung",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "anzBilder",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "Neuer Ort",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ausstellungname",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3.1 anzBilder too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "anzBilder",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "Neuer Ort",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ausstellungname",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3.2 ort too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "anzBilder",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ausstellungname",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3.2 ort too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "anzBilder",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "thisortnameiswaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaytooolong",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ausstellungname",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3.3 name too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "anzBilder",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "New Ort",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "A",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.3.3 name too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "anzBilder",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "New Ort",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ausstellungname",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.1 update Bild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "bildUUID",
+							"value": "a8fcf250-34d5-44ce-ad2f-b869815e57fe",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "New Mona Lisa",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "Leonardo Da Vinci",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "1503",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Rennaissance",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "843000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.1 update uknown Bild",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "bildUUID",
+							"value": "notfound",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "New Mona Lisa",
+							"type": "text"
+						},
+						{
+							"key": "kuenstler",
+							"value": "Leonardo Da Vinci",
+							"type": "text"
+						},
+						{
+							"key": "datum",
+							"value": "1503",
+							"type": "text"
+						},
+						{
+							"key": "art",
+							"value": "Rennaissance",
+							"type": "text"
+						},
+						{
+							"key": "preis",
+							"value": "843000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/bild/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"bild",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.2 update Kuenstler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "kuenstlerID",
+							"value": "74e632e6-d08d-4aac-96da-892d0a51114e",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1452-04-15",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.2 update unkown Kuenstler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "kuenstlerID",
+							"value": "notfound",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "New Name",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1452-04-15",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"kuenstler",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.3 update Ausstellung",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "museumID",
+							"value": "421c2deb-7594-4495-b565-4d41f113bfd9",
+							"type": "text"
+						},
+						{
+							"key": "anzBilder",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "New Ort",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Kunsthaus",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.3 update unkown Ausstellung",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "museumID",
+							"value": "notfound",
+							"type": "text"
+						},
+						{
+							"key": "anzBilder",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "ort",
+							"value": "New Ort",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Kunsthaus",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/ausstellung/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"ausstellung",
+						"update"
 					]
 				}
 			},

@@ -93,7 +93,7 @@ public class AusstellungService {
     /**
      * erstellt eine Ausstellung
      * @param ausstellung
-     * @return
+     * @return Repsonse
      */
     @POST
     @Path("create")
@@ -113,7 +113,7 @@ public class AusstellungService {
     /**
      * löscht eine Ausstellung
      * @param museumID
-     * @return
+     * @return Response
      */
     @DELETE
     @Path("delete")

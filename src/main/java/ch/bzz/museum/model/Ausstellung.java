@@ -24,12 +24,12 @@ public class Ausstellung {
 
     @FormParam("ort")
     @NotEmpty
-    @Size(min=2, max=40)
+    @Size(min=2, max=20)
     private String ort;
 
     @FormParam("name")
     @NotEmpty
-    @Size(min=5, max=40)
+    @Size(min=5, max=20)
     private String name;
     @JsonIgnore
     private List<Bild> bilderList;
