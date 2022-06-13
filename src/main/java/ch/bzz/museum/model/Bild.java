@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class Bild {
 
     //Attribute
-    @FormParam("bookUUID")
+    @FormParam("bildID")
     @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String bildID;
 

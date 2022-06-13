@@ -2,7 +2,7 @@
  {
   "bildID": "a8fcf250-34d5-44ce-ad2f-b869815e57fe",
   "name": "Mona Lisa",
-  "künstler": "Leonardo da Vinci",
+  "kuenstler": "Leonardo da Vinci",
   "datum": 1503,
   "art": "Rennaissance",
   "preis": 843000000
@@ -10,7 +10,7 @@
  {
   "bildID": "765d4442-201b-4d0e-bb5d-eee27cb04608",
   "name": "Sternennacht",
-  "künstler": "Vincent van Gogh",
+  "kuenstler": "Vincent van Gogh",
   "datum": 1889,
   "art": "Moderne Kunst",
   "preis": 100000000
@@ -18,7 +18,7 @@
  {
   "bildID": "c78bdc93-19da-4446-97d9-41bcded7dc16",
   "name": "Der Schrei",
-  "künstler": "Vincent van Gogh",
+  "kuenstler": "Vincent van Gogh",
   "datum": 1910,
   "art": "Expressionismus",
   "preis": 119900000
@@ -26,7 +26,7 @@
  {
   "bildID": "6f9ff49e-d028-4eef-a1b6-5b7586700e10",
   "name": "Das Abendmahl",
-  "künstler": "Leonardo da Vinci",
+  "kuenstler": "Leonardo da Vinci",
   "datum": 1498,
   "art": "Rennaissance",
   "preis": 450000000
@@ -34,7 +34,7 @@
  {
   "bildID": "8f83c81a-3067-4fad-af2c-20a2a31008b1",
   "name": "Der Kuss",
-  "künstler": "Gustav Klimt",
+  "kuenstler": "Gustav Klimt",
   "datum": 1908,
   "art": "Moderne Kunst",
   "preis": 60000000
@@ -42,7 +42,7 @@
  {
   "bildID": "d42be9a6-0968-4b0d-b93c-2e821184a4e0",
   "name": "Die große Welle vor Kanagawa",
-  "künstler": "Katsushika Hokusai",
+  "kuenstler": "Katsushika Hokusai",
   "datum": 1831,
   "art": "Ukiyo-e",
   "preis": 1350400
@@ -50,7 +50,7 @@
  {
   "bildID": "c629989d-78dd-4312-8435-ac094ff46026",
   "name": "Guernica",
-  "künstler": "Pablo Picasso",
+  "kuenstler": "Pablo Picasso",
   "datum": 1937,
   "art": "Kubismus",
   "preis": 85400000
@@ -58,7 +58,7 @@
  {
   "bildID": "0ec7c8be-6432-4dfb-9edf-3c96ae515b28",
   "name": "American Gothic",
-  "künstler": "Grant Wood",
+  "kuenstler": "Grant Wood",
   "datum": 1930,
   "art": "Moderne",
   "preis": 5193.97
