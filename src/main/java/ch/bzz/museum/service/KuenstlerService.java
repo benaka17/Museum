@@ -66,7 +66,7 @@ public class KuenstlerService {
      * updated einen einzigen Künstler
      * @param kuenstler
      * @param kuenstlerID
-     * @return
+     * @return Response
      */
     @PUT
     @Path("update")
@@ -98,7 +98,7 @@ public class KuenstlerService {
     /**
      * erstellt einen Künstler
      * @param kuenstler
-     * @return
+     * @return Response
      */
     @POST
     @Path("create")
@@ -118,7 +118,7 @@ public class KuenstlerService {
     /**
      * löscht einen Künstler
      * @param kuenstlerID
-     * @return
+     * @return Response
      */
     @DELETE
     @Path("delete")
