@@ -13,7 +13,7 @@ function sendLogin(form){
             data: $("#loginForm").serialize()
         })
         .done(function (){
-            window.location.href = "./bookshelf.html";
+            window.location.href = "http://localhost:8080/Museum-1.0/resource/bild/list";
         })
         .fail(function (xhr, status, errorThrown){
             if (xhr.status == 404){
