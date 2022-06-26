@@ -31,6 +31,7 @@ public class Config extends Application {
         providers.add(BildService.class);
         providers.add(AusstellungService.class);
         providers.add(TestService.class);
+        providers.add(UserService.class);
         return providers;
     }
 
