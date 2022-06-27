@@ -1,19 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Marcel Suter"/>
+    <meta name="author" content="Alexander Benak"/>
     <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
-    <meta name="project" content="Bookshelf"/>
+    <meta name="project" content="Museum"/>
     <meta name="description" content="bookshelf books list table"/>
-    <title>Museum</title>
-    <script src="./js/bookshelf.js"></script>
+    <title>Bilder Liste</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/bilderlist.js"></script>
 </head>
 <body>
-    <h1>Museum</h1>
-    <button type="button" id="logoff">Abmelden</button>
-    <button>List Bilder</button>
+<nav id="nav">
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Museum</h3>
+<form id="shelfForm">
+    <table id="museum">
+        <thead>
+        <tr>
+            <th>BildID</th>
+            <th>Name</th>
+            <th>Kuenstler</th>
+            <th>Datum</th>
+            <th>Art</th>
+            <th>Preis</th>
+        </tr>
+        </thead>
+        <tbody id="bildList">
+
+        </tbody>
+    </table>
+    <button id="logoff" type="button">Abmelden</button>
+    <p>
+        <a href="./bildedit.html">Neues Buch</a>
+    </p>
+</form>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/util.js"></script>
+<script src="./js/js.cookie.js"></script>
+<script src="./js/login.js"></script>
 </body>
 </html>

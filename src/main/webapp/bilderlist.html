@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Alexander Benak"/>
+  <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+  <meta name="project" content="Museum"/>
+  <meta name="description" content="bookshelf books list table"/>
+  <title>Bilder Liste</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/bilderlist.js"></script>
+</head>
+<body>
+<nav id="nav">
+  <span id="message" style="color: red;"></span>
+</nav>
+<h3>Museum</h3>
+<form id="shelfForm">
+  <table id="museum">
+    <thead>
+    <tr>
+      <th>bildID</th>
+      <th>name</th>
+      <th>kuenstler</th>
+      <th>datum</th>
+      <th>preis</th>
+    </tr>
+    </thead>
+    <tbody id="bildlist">
+
+    </tbody>
+  </table>
+  <button id="logoff" type="button">Abmelden</button>
+  <p>
+    <a href="./bildedit.html">Neues Buch</a>
+  </p>
+</form>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/util.js"></script>
+<script src="./js/js.cookie.js"></script>
+<script src="./js/login.js"></script>
+</body>
+</html>
