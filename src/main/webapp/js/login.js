@@ -1,8 +1,15 @@
+/**
+ * javascript forms für das login (evaluierung)
+ */
 $(document).ready(function (){
    $("#loginForm").submit(sendLogin);
    $("#logoff").click(sendLogoff);
 });
 
+/**
+ * für das login zuständig
+ * @param form
+ */
 function sendLogin(form){
     form.preventDefault();
     $
@@ -24,6 +31,9 @@ function sendLogin(form){
         })
 }
 
+/**
+ * für das ausloggen zuständig
+ */
 function sendLogoff(){
     $
         .ajax({

@@ -1,15 +1,15 @@
 /**
- * view-controller for bookshelf.html
+ * view-controller für bildlist.html
  * @author Alexander Benak
  */
 document.addEventListener("DOMContentLoaded", () => {
-    readBooks();
+    readBilder();
 });
 
 /**
- * reads all books
+ * liest alle Biler
  */
-function readBooks() {
+function readBilder() {
     fetch("./resource/bild/list")
         .then(function (response) {
             if (response.ok) {
@@ -28,7 +28,7 @@ function readBooks() {
 }
 
 /**
- * shows the booklist as a table
+ * zeigt die Biler als Tabelle
  * @param data  the books
  */
 function showBooklist(data) {
@@ -62,8 +62,8 @@ function showBooklist(data) {
 }
 
 /**
- * redirects to the edit-form
- * @param event  the click-event
+ * lenkt zu bildedit um
+ * @param event
  */
 function editBild(event) {
     const button = event.target;
@@ -72,7 +72,7 @@ function editBild(event) {
 }
 
 /**
- * deletes a book
+ * löscht ein bild
  * @param event  the click-event
  */
 function deleteBild(event) {

@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     readAusstellungen();
     readBild();
 
-    document.getElementById("save").addEventListener("submit", saveBook);
+    document.getElementById("save").addEventListener("submit", saveBild);
     document.getElementById("cancel").addEventListener("click", cancelEdit);
 });
 
 /**
- * saves the data of a book
+ * speichert die daten eines bilds
  */
-function saveBook(event) {
+function saveBild(event) {
     event.preventDefault();
 
     const bildForm = document.getElementById("bildeditForm");
@@ -73,8 +73,8 @@ function readBild() {
 }
 
 /**
- * show the data of a book
- * @param data  the book-data
+ * zeigt die daten eines bilds
+ * @param data
  */
 function showBild(data) {
     document.getElementById("bildUUID").value = data.bildID;
@@ -86,7 +86,7 @@ function showBild(data) {
 }
 
 /**
- * reads all publishers as an array
+ * liest alle ausstellungen als array
  */
 function readAusstellungen() {
 
@@ -108,7 +108,7 @@ function readAusstellungen() {
 }
 
 /**
- * shows all publishers as a dropdown
+ * zeigt alle ausstellunen als dropdown
  * @param data
  */
 function showAusstellungen(data) {
@@ -122,7 +122,7 @@ function showAusstellungen(data) {
 }
 
 /**
- * redirects to the bookshelf
+ * umleitung zur bilderlist
  * @param event  the click-event
  */
 function cancelEdit(event) {

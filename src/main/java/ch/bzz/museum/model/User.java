@@ -1,91 +1,79 @@
 package ch.bzz.museum.model;
 
+/**
+ * die klasse für einen Benutzer (user)
+ */
 public class User {
     private String userUUID;
-    private String username;
-    private String password;
-    private String role;
+    private String username; //denglish weil sonst der code nicht funktioniert, sorry :)
+    private String password; //denglish weil sonst der code nicht funktioniert, sorry :)
+    private String role; //denglish weil sonst der code nicht funktioniert, sorry :)
 
     public User(){
         setRole("guest");
     }
 
     /**
-     * gets userUUID
+     * holt userUUID
      *
-     * @return value of userUUID
+     * @return wert von userUUID
      */
-
     public String getUserUUID() {
         return userUUID;
     }
 
     /**
-     * sets userUUID
-     *
-     * @param userUUID the value to set
+     * setzt userUUID
+     * @param userUUID
      */
-
     public void setUserUUID(String userUUID) {
         this.userUUID = userUUID;
     }
 
     /**
-     * gets username
-     *
-     * @return value of username
+     * holt den username
+     * @return wert von username
      */
-
     public String getUsername() {
         return username;
     }
 
     /**
-     * sets username
-     *
-     * @param username the value to set
+     * setzt den username
+     * @param username
      */
-
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * gets password
-     *
-     * @return value of password
+     * holt password
+     * @return wert von password
      */
-
     public String getPassword() {
         return password;
     }
 
     /**
-     * sets password
-     *
-     * @param password the value to set
+     * setzt password
+     * @param password
      */
-
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * gets role
-     *
-     * @return value of role
+     * holt die rolle
+     * @return wert von role
      */
-
     public String getRole() {
         return role;
     }
 
     /**
-     * sets role
-     *
-     * @param role the value to set
+     * setzt die rolle
+     * @param role
      */
-
     public void setRole(String role) {
         this.role = role;
     }

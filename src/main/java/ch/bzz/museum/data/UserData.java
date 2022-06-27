@@ -10,10 +10,19 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * zuständig für die Daten der Benutzer (user)
+ */
 public class UserData {
 
     private static final UserData instance = new UserData();
 
+    /**
+     * findet einen Benutzer
+     * @param username
+     * @param password
+     * @return user
+     */
     public static User findUser(String username, String password){
         User user = new User();
         List<User> userList = readJson();
@@ -26,6 +35,10 @@ public class UserData {
         return user;
     }
 
+    /**
+     * liest das JSON der benutzer, gibt es als list zurück
+     * @return userlist
+     */
     private static List<User> readJson(){
         List<User> userList = new ArrayList<>();
         try {

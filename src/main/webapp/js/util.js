@@ -1,5 +1,5 @@
 /**
- * utility functions for multiple pages
+ * für mehrere pages zuständig
  *
  * @author  Marcel Suter
  * @since   2022-05-30
@@ -7,10 +7,10 @@
  */
 
 /**
- * get the value of an url parameter identified by key
- * source: https://www.sitepoint.com/get-url-parameters-with-javascript/
- * @param key  the key to be searched
- * @returns values as a String or null
+ * holt den Wert eines URL Parameters
+ * Quelle: https://www.sitepoint.com/get-url-parameters-with-javascript/
+ * @param key
+ * @returns werte als String oder null
  */
 function getQueryParam (key) {
     const queryString = window.location.search;
@@ -20,9 +20,9 @@ function getQueryParam (key) {
 }
 
 /**
- * gets the value of the cookie with the specified name
- * Source: https://www.w3schools.com/js/js_cookies.asp
- * @param cname  the name of the cookie
+ * holt den Wert eines Cookies mit bestimmtem Namen
+ * Quelle: https://www.w3schools.com/js/js_cookies.asp
+ * @param name
  * @returns {string}
  */
 function getCookie(cname) {
