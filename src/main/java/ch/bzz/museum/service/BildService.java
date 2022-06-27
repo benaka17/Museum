@@ -26,11 +26,21 @@ public class BildService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listBilder(){
-        List<Bild> bildList = DataHandler.readAllBilder();
+    public Response listBilder(
+            @CookieParam("userRole") String userRole
+    ){
+        List<Bild> bilderList = null;
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest")){
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+            bilderList = DataHandler.readAllBilder();
+        }
+        //List<Book> bilderList = DataHandler.readAllBooks();
         return Response
-                .status(200)
-                .entity(bildList)
+                .status(httpStatus)
+                .entity(bilderList)
                 .build();
     }
 
