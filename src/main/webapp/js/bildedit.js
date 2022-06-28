@@ -126,5 +126,5 @@ function showAusstellungen(data) {
  * @param event  the click-event
  */
 function cancelEdit(event) {
-    window.location.href = "./bilderlist.html";
+    window.location.href = "./museum.html";
 }

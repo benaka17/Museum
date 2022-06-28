@@ -114,7 +114,7 @@ public final class DataHandler {
      */
     public static Ausstellung readAusstellungByUUID(String ausstellungUUID) {
         Ausstellung ausstellung = null;
-        for (Ausstellung entry : ausstellungList) {
+        for (Ausstellung entry : getAusstellungList()) {
             if (entry.getMuseumID().equals(ausstellungUUID)) {
                 ausstellung = entry;
             }
@@ -295,7 +295,7 @@ public final class DataHandler {
         try {
             fileOutputStream = new FileOutputStream(bookPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getBilderList());
+            objectWriter.writeValue(fileWriter, getAusstellungList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -346,7 +346,7 @@ public final class DataHandler {
         try {
             fileOutputStream = new FileOutputStream(bookPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getBilderList());
+            objectWriter.writeValue(fileWriter, getKuenstlerList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

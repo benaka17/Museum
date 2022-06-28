@@ -26,8 +26,9 @@ public class Bild {
     private String kuenstler;
 
     @FormParam("datum")
-    @NotEmpty
-    @Size(min=4, max=4)
+    @NotNull
+    @Min(0)
+    @Max(2022)
     private Integer datum; //Wrapper-Klasse benutzt, da Fehler vorkamen ohne
 
     @FormParam("art")

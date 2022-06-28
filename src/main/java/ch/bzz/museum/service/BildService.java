@@ -83,12 +83,12 @@ public class BildService {
             @Valid @BeanParam Bild bild,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("uuid") String bildUUID
+            @FormParam("bildID") String bildUUID
     ) {
         int httpstatus = 200;
-        Bild oldBild = DataHandler.readBildByUUID(bild.getBildID());
+        Bild oldBild = DataHandler.readBildByUUID(bildUUID);
         if (oldBild != null){
-            oldBild.setBildID(UUID.randomUUID().toString());
+            oldBild.setBildID(bild.getBildID());
             oldBild.setName(bild.getName());
             oldBild.setKuenstler(bild.getKuenstler());
             oldBild.setDatum(bild.getDatum());

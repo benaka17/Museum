@@ -18,7 +18,7 @@ public class Ausstellung {
     private String museumID;
 
     @FormParam("anzBilder")
-    @NotEmpty
+    @NotNull
     @Min(1)
     private int anzBilder;
 
@@ -31,6 +31,7 @@ public class Ausstellung {
     @NotEmpty
     @Size(min=5, max=20)
     private String name;
+
     @JsonIgnore
     private List<Bild> bilderList;
 

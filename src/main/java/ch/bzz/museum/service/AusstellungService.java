@@ -70,12 +70,12 @@ public class AusstellungService {
             @Valid @BeanParam Ausstellung ausstellung,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @FormParam("musueumID") String museumID
+            @FormParam("museumID") String museumID
     ) {
         int httpstatus = 200;
         Ausstellung oldAusstellung = DataHandler.readAusstellungByUUID(museumID);
         if (oldAusstellung != null){
-            oldAusstellung.setMuseumID(UUID.randomUUID().toString());
+            oldAusstellung.setMuseumID(ausstellung.getMuseumID());
             oldAusstellung.setAnzBilder(ausstellung.getAnzBilder());
             oldAusstellung.setOrt(ausstellung.getOrt());
             oldAusstellung.setName(ausstellung.getName());
