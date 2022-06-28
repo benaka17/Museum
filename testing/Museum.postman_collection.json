@@ -548,7 +548,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/delete?uuid=74e632e6-d08d-4aac-96da-892d0a51114e",
+					"raw": "http://localhost:8080/Museum-1.0/resource/kuenstler/delete?uuid=ad7d8f4e-f2d2-42d6-89f3-79a6891ffb3b",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -563,7 +563,7 @@
 					"query": [
 						{
 							"key": "uuid",
-							"value": "74e632e6-d08d-4aac-96da-892d0a51114e"
+							"value": "ad7d8f4e-f2d2-42d6-89f3-79a6891ffb3b"
 						}
 					]
 				}
@@ -2010,13 +2010,13 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "bildUUID",
-							"value": "a8fcf250-34d5-44ce-ad2f-b869815e57fe",
+							"key": "bildID",
+							"value": "ae7386de-b743-447d-a43c-c842c736d42c",
 							"type": "text"
 						},
 						{
 							"key": "name",
-							"value": "New Mona Lisa",
+							"value": "Moner Liser",
 							"type": "text"
 						},
 						{
@@ -2353,6 +2353,226 @@
 						"resource",
 						"ausstellung",
 						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.1 Login / Cookie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ammanna",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "geheim",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.1.1 wrong password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ammanna",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "siuuuuu",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.1.2 wrong username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "siuuu",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "geheim",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.2 Check User in Cookie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.3 Logoff / Set to guest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Museum-1.0/resource/user/logoff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Museum-1.0",
+						"resource",
+						"user",
+						"logoff"
 					]
 				}
 			},
